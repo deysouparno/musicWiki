@@ -80,8 +80,8 @@ class SwipeViewAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            1 -> AlbumFragment()
-            2 -> ArtistFragment()
+            0 -> AlbumFragment()
+            1 -> ArtistFragment()
             else -> TrackFragment()
         }
     }

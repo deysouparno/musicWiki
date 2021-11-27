@@ -115,7 +115,7 @@ class TracksViewHolder(private val binding: DetailsItemBinding) :
                     parent,
                     false
                 )
-            );
+            )
         }
     }
 
