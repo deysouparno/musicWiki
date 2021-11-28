@@ -1,18 +1,24 @@
-package com.example.musicwiki
+package com.example.musicwiki.screens
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.musicwiki.databinding.FragmentListBinding
+import com.example.musicwiki.MainViewModel
+import com.example.musicwiki.adapters.AlbumsAdapter
+import com.example.musicwiki.databinding.DetailsListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class AlbumFragment : Fragment() {
 
-    private var _binding: FragmentListBinding? = null
-    private val binding: FragmentListBinding get() = _binding!!
+    private var _binding: DetailsListBinding? = null
+    private val binding: DetailsListBinding get() = _binding!!
 
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var adapter: AlbumsAdapter
@@ -22,7 +28,7 @@ class AlbumFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentListBinding.inflate(inflater)
+        _binding = DetailsListBinding.inflate(inflater)
 
         adapter = AlbumsAdapter()
         binding.listRv.adapter = adapter
@@ -30,6 +36,7 @@ class AlbumFragment : Fragment() {
 
         viewModel.albums.observe(viewLifecycleOwner, {
             adapter.submitList(it)
+            binding.shimmer.isVisible = it.isEmpty()
         })
 
         return binding.root

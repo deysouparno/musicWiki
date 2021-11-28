@@ -1,12 +1,12 @@
-package com.example.musicwiki
+package com.example.musicwiki.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.musicwiki.R
 import com.example.musicwiki.databinding.ArtistItemBinding
 import com.example.musicwiki.databinding.DetailsItemBinding
 import com.example.musicwiki.models.Album
@@ -139,7 +139,7 @@ private val albumDiffCallback = object : DiffUtil.ItemCallback<Album>() {
     }
 
     override fun areContentsTheSame(oldItem: Album, newItem: Album): Boolean {
-        return oldItem.hashCode() == newItem.hashCode()
+        return oldItem == newItem
     }
 
 }
@@ -150,7 +150,7 @@ private val artistDiffCallback = object : DiffUtil.ItemCallback<ArtistDetails>()
     }
 
     override fun areContentsTheSame(oldItem: ArtistDetails, newItem: ArtistDetails): Boolean {
-        return oldItem.hashCode() == newItem.hashCode()
+        return oldItem == newItem
     }
 
 }
@@ -162,7 +162,7 @@ private val trackDiffCallback = object : DiffUtil.ItemCallback<Track>() {
     }
 
     override fun areContentsTheSame(oldItem: Track, newItem: Track): Boolean {
-        return oldItem.hashCode() == newItem.hashCode()
+        return oldItem == newItem
     }
 
 }

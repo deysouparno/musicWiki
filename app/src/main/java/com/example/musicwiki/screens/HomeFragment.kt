@@ -1,4 +1,4 @@
-package com.example.musicwiki
+package com.example.musicwiki.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.musicwiki.MainViewModel
+import com.example.musicwiki.R
 import com.example.musicwiki.databinding.FragmentHomeBinding
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
